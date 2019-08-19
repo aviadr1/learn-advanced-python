@@ -1,0 +1,139 @@
+- title: 01 refresher
+  sections:
+  - title: Ex 01-questions
+    url: /01_refresher/ex_01-questions
+  - title: Ex 01-solutions
+    url: /01_refresher/ex_01-solutions
+  - title: Lesson 01-generators
+    url: /01_refresher/lesson_01-generators
+  - title: Lesson 01-generic Functions Closures
+    url: /01_refresher/lesson_01-generic_functions_closures
+  - title: Lesson 01-refresher
+    url: /01_refresher/lesson_01-refresher
+  - title: Reduce
+    url: /01_refresher/reduce
+  url: /01_refresher/ex_01-questions
+- title: 02 closures and decorators
+  sections:
+  - title: Closure And Decorators
+    url: /02_closures_and_decorators/closure_and_decorators
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /02_closures_and_decorators/exercise/questions
+    - title: Solutions
+      url: /02_closures_and_decorators/exercise/solutions
+    url: /02_closures_and_decorators/exercise/questions
+  url: /02_closures_and_decorators/closure_and_decorators
+- title: 03 polymorphism protocols and abcs
+  sections:
+  - title: Polymorphism Protocols Abcs
+    url: /03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs
+  url: /03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs
+- title: 04 writing our own container types
+  sections:
+  - title: Writing Our Own Container Types
+    url: /04_writing_our_own_container_types/writing_our_own_container_types
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /04_writing_our_own_container_types/exercise/questions
+    - title: Solutions
+      url: /04_writing_our_own_container_types/exercise/solutions
+    url: /04_writing_our_own_container_types/exercise/questions
+  url: /04_writing_our_own_container_types/writing_our_own_container_types
+- title: 05 more on classes and objects
+  sections:
+  - title: More On Classes And Objects
+    url: /05_more_on_classes_and_objects/more_on_classes_and_objects
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /05_more_on_classes_and_objects/exercise/questions
+    - title: Solutions
+      url: /05_more_on_classes_and_objects/exercise/solutions
+    url: /05_more_on_classes_and_objects/exercise/questions
+  url: /05_more_on_classes_and_objects/more_on_classes_and_objects
+- title: 06 multiple inheritance and super
+  sections:
+  - title: Multiple Inheritance And Super
+    url: /06_multiple_inheritance_and_super/multiple_inheritance_and_super
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /06_multiple_inheritance_and_super/exercise/questions
+    - title: Solutions
+      url: /06_multiple_inheritance_and_super/exercise/solutions
+    url: /06_multiple_inheritance_and_super/exercise/questions
+  url: /06_multiple_inheritance_and_super/multiple_inheritance_and_super
+- title: 07 design patterns in python
+  sections:
+  - title: 07-design Patterns In Python
+    url: /07_design_patterns_in_python/07-design_patterns_in_python
+  url: /07_design_patterns_in_python/07-design_patterns_in_python
+- title: 08 test driven development
+  sections:
+  - title: 08-test Driven Development
+    url: /08_test_driven_development/08-test_driven_development
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /08_test_driven_development/exercise/questions
+    - title: Solutions
+      url: /08_test_driven_development/exercise/solutions
+    url: /08_test_driven_development/exercise/questions
+  url: /08_test_driven_development/08-test_driven_development
+- title: 10 package management
+  sections:
+  - title: 10-package Management
+    url: /10_package_management/10-package_management
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /10_package_management/exercise/questions
+    - title: Solutions
+      url: /10_package_management/exercise/solutions
+    url: /10_package_management/exercise/questions
+  url: /10_package_management/10-package_management
+- title: 11 db access
+  sections:
+  - title: Basic Db Access
+    url: /11_db_access/01_basic_db_access
+  - title: Sqlalchemy Orm
+    url: /11_db_access/02_sqlalchemy_orm
+  - title: exercise
+    subsections:
+    - title: Basic Db Access-questions
+      url: /11_db_access/exercise/basic_db_access-questions
+    - title: Basic Db Access-solutions
+      url: /11_db_access/exercise/basic_db_access-solutions
+    - title: Sqlalchemy Orm-questions
+      url: /11_db_access/exercise/sqlalchemy_orm-questions
+    - title: Sqlalchemy Orm-solutions
+      url: /11_db_access/exercise/sqlalchemy_orm-solutions
+    url: /11_db_access/exercise/basic_db_access-questions
+  url: /11_db_access/01_basic_db_access
+- title: 12 its fun to be eval
+  sections:
+  - title: Its Fun To Be Eval
+    url: /12_its_fun_to_be_eval/its_fun_to_be_eval
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /12_its_fun_to_be_eval/exercise/questions
+    - title: Solutions
+      url: /12_its_fun_to_be_eval/exercise/solutions
+    url: /12_its_fun_to_be_eval/exercise/questions
+  url: /12_its_fun_to_be_eval/its_fun_to_be_eval
+- title: 13 complex comprehensions
+  sections:
+  - title: Complex Comprehensions
+    url: /13_complex_comprehensions/complex_comprehensions
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /13_complex_comprehensions/exercise/questions
+    - title: Solutions
+      url: /13_complex_comprehensions/exercise/solutions
+    url: /13_complex_comprehensions/exercise/questions
+  url: /13_complex_comprehensions/complex_comprehensions

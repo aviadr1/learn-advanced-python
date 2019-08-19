@@ -63,8 +63,9 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
+### removed for supporting jupyter-book
+# # Sphinx documentation
+# docs/_build/
 
 # PyBuilder
 target/
@@ -102,3 +103,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# jupyter-book
+docs/content/
+docs/.sass-cache/
+docs/_site/
+docs/_data/toc.bak.yml
