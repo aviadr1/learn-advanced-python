@@ -1,18 +1,24 @@
 - title: 01 refresher
   sections:
-  - title: Ex 01-questions
-    url: /01_refresher/ex_01-questions
-  - title: Ex 01-solutions
-    url: /01_refresher/ex_01-solutions
-  - title: Lesson 01-generators
-    url: /01_refresher/lesson_01-generators
-  - title: Lesson 01-generic Functions Closures
-    url: /01_refresher/lesson_01-generic_functions_closures
-  - title: Lesson 01-refresher
-    url: /01_refresher/lesson_01-refresher
-  - title: Reduce
-    url: /01_refresher/reduce
-  url: /01_refresher/ex_01-questions
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /01_refresher/exercise/questions
+    - title: Solutions
+      url: /01_refresher/exercise/solutions
+    url: /01_refresher/exercise/questions
+  - title: notebooks
+    subsections:
+    - title: Generators
+      url: /01_refresher/notebooks/generators
+    - title: Generic Functions Closures
+      url: /01_refresher/notebooks/generic_functions_closures
+    - title: Reduce
+      url: /01_refresher/notebooks/reduce
+    - title: Refresher
+      url: /01_refresher/notebooks/refresher
+    url: /01_refresher/notebooks/generators
+  url: /01_refresher/exercise/questions
 - title: 02 closures and decorators
   sections:
   - title: Closure And Decorators
@@ -137,3 +143,15 @@
       url: /13_complex_comprehensions/exercise/solutions
     url: /13_complex_comprehensions/exercise/questions
   url: /13_complex_comprehensions/complex_comprehensions
+- title: 14 pandas
+  sections:
+  - title: Pandas A Quick Tour
+    url: /14_pandas/pandas_a_quick_tour
+  - title: edm us adult census income
+    subsections:
+    - title: Questions
+      url: /14_pandas/edm_us_adult_census_income/questions
+    - title: Solution
+      url: /14_pandas/edm_us_adult_census_income/solution
+    url: /14_pandas/edm_us_adult_census_income/questions
+  url: /14_pandas/pandas_a_quick_tour

@@ -31,6 +31,34 @@ First, run the code below to download the database locally
 
 
 
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+### useful: download and extract chinook sample DB
+import urllib.request
+import zipfile
+from functools import partial
+import os
+
+chinook_url = 'http://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip'
+if not os.path.exists('chinook.zip'):
+    print('downloading chinook.zip ', end='')
+    with urllib.request.urlopen(chinook_url) as response:
+        with open('chinook.zip', 'wb') as f:
+            for data in iter(partial(response.read, 4*1024), b''):
+                print('.', end='', flush=True)
+                f.write(data)
+
+zipfile.ZipFile('chinook.zip').extractall()
+assert os.path.exists('chinook.db')
+
+```
+</div>
+
+</div>
+
+
+
 # 1. open the database
 1. connect to the database using the `sqlite3` or `pyodbc` module interface. place the connection object in a variable named `conn`
 2. create a cursor object and put it in the variable `cur`

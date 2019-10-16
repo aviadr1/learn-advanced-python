@@ -34,7 +34,7 @@ First, run the code below to download the database locally
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-# download and extract chinook sample DB
+### useful: download and extract chinook sample DB
 import urllib.request
 import zipfile
 from functools import partial
