@@ -9,8 +9,8 @@ prev_page:
   url: /13_complex_comprehensions/exercise/questions.html
   title: 'Questions'
 next_page:
-  url: 
-  title: ''
+  url: /14_pandas/pandas_a_quick_tour.html
+  title: '14 pandas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/13_complex_comprehensions/exercise/solutions.ipynb" target="_blank">

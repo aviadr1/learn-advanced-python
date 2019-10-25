@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/14_pandas/edm_us_adult_census_income/questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'edm us adult census income'
+title: 'Questions'
 prev_page:
-  url: /14_pandas/pandas_a_quick_tour.html
-  title: 'Pandas A Quick Tour'
-next_page:
   url: /14_pandas/edm_us_adult_census_income/questions.html
-  title: 'Questions'
+  title: 'edm us adult census income'
+next_page:
+  url: /14_pandas/edm_us_adult_census_income/solution.html
+  title: 'Solution'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/14_pandas/edm_us_adult_census_income/questions.ipynb" target="_blank">
@@ -18,6 +18,47 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
      title="Open this file in Google Colab" alt="Colab"/>
 </a>
 
+
+
+
+# get the data
+run the following two cells below to get the data for this exercise,
+then followup by reading the questions and writing your own code to answer them.
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+!pip install requests
+
+```
+</div>
+
+</div>
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+import requests
+
+url = "http://mlr.cs.umass.edu/ml/machine-learning-databases/adult/adult.data"
+request = requests.get(url)
+request.raise_for_status()
+with open('adult.csv', 'w') as f:
+    f.write(request.text)
+
+### now the data is available in the file adult.csv. 
+### read the questions below
+# import pandas as pd
+# pd.read_csv('adult.csv')    
+
+```
+</div>
+
+</div>
 
 
 

@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/07_design_patterns_in_python/07-design_patterns_in_python.ipynb
 kernel_name: python3
 has_widgets: false
-title: '07 design patterns in python'
+title: '07-design Patterns In Python'
 prev_page:
-  url: /06_multiple_inheritance_and_super/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /07_design_patterns_in_python/07-design_patterns_in_python.html
-  title: '07-design Patterns In Python'
+  title: '07 design patterns in python'
+next_page:
+  url: /08_test_driven_development/08-test_driven_development.html
+  title: '08 test driven development'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/07_design_patterns_in_python/07-design_patterns_in_python.ipynb" target="_blank">

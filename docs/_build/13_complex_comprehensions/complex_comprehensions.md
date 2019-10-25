@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/13_complex_comprehensions/complex_comprehensions.ipynb
 kernel_name: python3
 has_widgets: false
-title: '13 complex comprehensions'
+title: 'Complex Comprehensions'
 prev_page:
-  url: /12_its_fun_to_be_eval/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /13_complex_comprehensions/complex_comprehensions.html
-  title: 'Complex Comprehensions'
+  title: '13 complex comprehensions'
+next_page:
+  url: /13_complex_comprehensions/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/13_complex_comprehensions/complex_comprehensions.ipynb" target="_blank">

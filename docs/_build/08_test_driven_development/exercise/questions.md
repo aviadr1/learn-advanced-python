@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/08_test_driven_development/exercise/questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'exercise'
+title: 'Questions'
 prev_page:
-  url: /08_test_driven_development/08-test_driven_development.html
-  title: '08-test Driven Development'
-next_page:
   url: /08_test_driven_development/exercise/questions.html
-  title: 'Questions'
+  title: 'exercise'
+next_page:
+  url: /08_test_driven_development/exercise/solutions.html
+  title: 'Solutions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/08_test_driven_development/exercise/questions.ipynb" target="_blank">

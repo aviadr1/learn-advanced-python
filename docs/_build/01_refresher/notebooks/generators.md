@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/01_refresher/notebooks/generators.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'notebooks'
+title: 'Generators'
 prev_page:
-  url: /01_refresher/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /01_refresher/notebooks/generators.html
-  title: 'Generators'
+  title: 'notebooks'
+next_page:
+  url: /01_refresher/notebooks/generic_functions_closures.html
+  title: 'Generic Functions Closures'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/01_refresher/notebooks/generators.ipynb" target="_blank">

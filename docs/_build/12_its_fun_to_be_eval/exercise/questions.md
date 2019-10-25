@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/12_its_fun_to_be_eval/exercise/questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'exercise'
+title: 'Questions'
 prev_page:
-  url: /12_its_fun_to_be_eval/its_fun_to_be_eval.html
-  title: 'Its Fun To Be Eval'
-next_page:
   url: /12_its_fun_to_be_eval/exercise/questions.html
-  title: 'Questions'
+  title: 'exercise'
+next_page:
+  url: /12_its_fun_to_be_eval/exercise/solutions.html
+  title: 'Solutions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/12_its_fun_to_be_eval/exercise/questions.ipynb" target="_blank">

@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/05_more_on_classes_and_objects/exercise/questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'exercise'
+title: 'Questions'
 prev_page:
-  url: /05_more_on_classes_and_objects/more_on_classes_and_objects.html
-  title: 'More On Classes And Objects'
-next_page:
   url: /05_more_on_classes_and_objects/exercise/questions.html
-  title: 'Questions'
+  title: 'exercise'
+next_page:
+  url: /05_more_on_classes_and_objects/exercise/solutions.html
+  title: 'Solutions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/05_more_on_classes_and_objects/exercise/questions.ipynb" target="_blank">

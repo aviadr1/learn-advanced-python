@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/10_package_management/10-package_management.ipynb
 kernel_name: python3
 has_widgets: false
-title: '10 package management'
+title: '10-package Management'
 prev_page:
-  url: /08_test_driven_development/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /10_package_management/10-package_management.html
-  title: '10-package Management'
+  title: '10 package management'
+next_page:
+  url: /10_package_management/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/10_package_management/10-package_management.ipynb" target="_blank">

@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/14_pandas/pandas_a_quick_tour.ipynb
 kernel_name: python3
 has_widgets: false
-title: '14 pandas'
+title: 'Pandas A Quick Tour'
 prev_page:
-  url: /13_complex_comprehensions/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /14_pandas/pandas_a_quick_tour.html
-  title: 'Pandas A Quick Tour'
+  title: '14 pandas'
+next_page:
+  url: /14_pandas/edm_us_adult_census_income/questions.html
+  title: 'edm us adult census income'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/14_pandas/pandas_a_quick_tour.ipynb" target="_blank">

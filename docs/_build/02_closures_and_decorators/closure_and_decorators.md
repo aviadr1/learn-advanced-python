@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/02_closures_and_decorators/closure_and_decorators.ipynb
 kernel_name: python3
 has_widgets: false
-title: '02 closures and decorators'
+title: 'Closure And Decorators'
 prev_page:
-  url: /01_refresher/reduce.html
-  title: 'Reduce'
-next_page:
   url: /02_closures_and_decorators/closure_and_decorators.html
-  title: 'Closure And Decorators'
+  title: '02 closures and decorators'
+next_page:
+  url: /02_closures_and_decorators/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/02_closures_and_decorators/closure_and_decorators.ipynb" target="_blank">

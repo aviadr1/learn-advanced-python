@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/01_refresher/exercise/questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: '01 refresher'
+title: 'Questions'
 prev_page:
-  url: 
-  title: ''
-next_page:
   url: /01_refresher/exercise/questions.html
   title: 'exercise'
+next_page:
+  url: /01_refresher/exercise/solutions.html
+  title: 'Solutions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/01_refresher/exercise/questions.ipynb" target="_blank">

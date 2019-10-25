@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/11_db_access/exercise/basic_db_access-questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'exercise'
+title: 'Basic Db Access-questions'
 prev_page:
-  url: /11_db_access/02_sqlalchemy_orm.html
-  title: 'Sqlalchemy Orm'
-next_page:
   url: /11_db_access/exercise/basic_db_access-questions.html
-  title: 'Basic Db Access-questions'
+  title: 'exercise'
+next_page:
+  url: /11_db_access/exercise/basic_db_access-solutions.html
+  title: 'Basic Db Access-solutions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/11_db_access/exercise/basic_db_access-questions.ipynb" target="_blank">

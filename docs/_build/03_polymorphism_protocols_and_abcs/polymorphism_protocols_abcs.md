@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.ipynb
 kernel_name: python3
 has_widgets: false
-title: '03 polymorphism protocols and abcs'
+title: 'Polymorphism Protocols Abcs'
 prev_page:
-  url: /02_closures_and_decorators/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html
-  title: 'Polymorphism Protocols Abcs'
+  title: '03 polymorphism protocols and abcs'
+next_page:
+  url: /04_writing_our_own_container_types/writing_our_own_container_types.html
+  title: '04 writing our own container types'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.ipynb" target="_blank">

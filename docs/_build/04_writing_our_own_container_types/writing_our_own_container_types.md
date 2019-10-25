@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/04_writing_our_own_container_types/writing_our_own_container_types.ipynb
 kernel_name: python3
 has_widgets: false
-title: '04 writing our own container types'
+title: 'Writing Our Own Container Types'
 prev_page:
-  url: /03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html
-  title: 'Polymorphism Protocols Abcs'
-next_page:
   url: /04_writing_our_own_container_types/writing_our_own_container_types.html
-  title: 'Writing Our Own Container Types'
+  title: '04 writing our own container types'
+next_page:
+  url: /04_writing_our_own_container_types/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/04_writing_our_own_container_types/writing_our_own_container_types.ipynb" target="_blank">

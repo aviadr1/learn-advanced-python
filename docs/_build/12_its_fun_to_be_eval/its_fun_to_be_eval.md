@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/12_its_fun_to_be_eval/its_fun_to_be_eval.ipynb
 kernel_name: python3
 has_widgets: false
-title: '12 its fun to be eval'
+title: 'Its Fun To Be Eval'
 prev_page:
-  url: /11_db_access/exercise/sqlalchemy_orm-solutions.html
-  title: 'Sqlalchemy Orm-solutions'
-next_page:
   url: /12_its_fun_to_be_eval/its_fun_to_be_eval.html
-  title: 'Its Fun To Be Eval'
+  title: '12 its fun to be eval'
+next_page:
+  url: /12_its_fun_to_be_eval/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/12_its_fun_to_be_eval/its_fun_to_be_eval.ipynb" target="_blank">

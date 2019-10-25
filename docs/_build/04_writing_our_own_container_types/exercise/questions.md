@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/04_writing_our_own_container_types/exercise/questions.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'exercise'
+title: 'Questions'
 prev_page:
-  url: /04_writing_our_own_container_types/writing_our_own_container_types.html
-  title: 'Writing Our Own Container Types'
-next_page:
   url: /04_writing_our_own_container_types/exercise/questions.html
-  title: 'Questions'
+  title: 'exercise'
+next_page:
+  url: /04_writing_our_own_container_types/exercise/solutions.html
+  title: 'Solutions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/04_writing_our_own_container_types/exercise/questions.ipynb" target="_blank">

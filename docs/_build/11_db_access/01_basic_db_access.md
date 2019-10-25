@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/11_db_access/01_basic_db_access.ipynb
 kernel_name: python3
 has_widgets: false
-title: '11 db access'
+title: 'Basic Db Access'
 prev_page:
-  url: /10_package_management/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /11_db_access/01_basic_db_access.html
-  title: 'Basic Db Access'
+  title: '11 db access'
+next_page:
+  url: /11_db_access/02_sqlalchemy_orm.html
+  title: 'Sqlalchemy Orm'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/11_db_access/01_basic_db_access.ipynb" target="_blank">

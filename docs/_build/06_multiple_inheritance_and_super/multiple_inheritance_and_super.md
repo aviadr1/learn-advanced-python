@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/06_multiple_inheritance_and_super/multiple_inheritance_and_super.ipynb
 kernel_name: python3
 has_widgets: false
-title: '06 multiple inheritance and super'
+title: 'Multiple Inheritance And Super'
 prev_page:
-  url: /05_more_on_classes_and_objects/exercise/solutions.html
-  title: 'Solutions'
-next_page:
   url: /06_multiple_inheritance_and_super/multiple_inheritance_and_super.html
-  title: 'Multiple Inheritance And Super'
+  title: '06 multiple inheritance and super'
+next_page:
+  url: /06_multiple_inheritance_and_super/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/06_multiple_inheritance_and_super/multiple_inheritance_and_super.ipynb" target="_blank">

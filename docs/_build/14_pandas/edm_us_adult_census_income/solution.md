@@ -21,6 +21,60 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 
+# get the data
+run the following two cells below to get the data for this exercise,
+then followup by reading the questions and writing your own code to answer them.
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+!pip install requests
+
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (2.21.0)
+Requirement already satisfied: idna<2.9,>=2.5 in /usr/local/lib/python3.6/dist-packages (from requests) (2.8)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests) (2019.9.11)
+Requirement already satisfied: urllib3<1.25,>=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests) (1.24.3)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests) (3.0.4)
+```
+</div>
+</div>
+</div>
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+### important: this code downloads the data for you into "adult.csv" file in the current directory
+import requests
+
+url = "http://mlr.cs.umass.edu/ml/machine-learning-databases/adult/adult.data"
+request = requests.get(url)
+request.raise_for_status()
+with open('adult.csv', 'w') as f:
+    f.write(request.text)
+
+### now the data is available in the file adult.csv. 
+### read the questions below
+# import pandas as pd
+# pd.read_csv('adult.csv')    
+
+```
+</div>
+
+</div>
+
+
+
 # income for adults from the 1994 census
 This dataset was extracted  done by Barry Becker from the 1994 Census database. 
 source: http://mlr.cs.umass.edu/ml/datasets/Adult
@@ -1071,7 +1125,7 @@ sns.distplot(df.capital_gain, kde=False)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_17_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_20_1.png)
 
 </div>
 </div>
@@ -1112,7 +1166,7 @@ sns.distplot(df[df.capital_gain > 0].capital_gain, kde=False)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_20_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_23_1.png)
 
 </div>
 </div>
@@ -1377,7 +1431,7 @@ sns.distplot(df.capital_loss, kde=False)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_32_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_35_1.png)
 
 </div>
 </div>
@@ -1419,7 +1473,7 @@ sns.distplot(df[df.capital_loss !=0].capital_loss, kde=False)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_35_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_38_1.png)
 
 </div>
 </div>
@@ -1516,7 +1570,7 @@ plt.axhline(y=df.over50k.mean(), linestyle="--")
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_40_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_43_1.png)
 
 </div>
 </div>
@@ -1722,7 +1776,7 @@ sns.barplot(
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_44_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_47_1.png)
 
 </div>
 </div>
@@ -1973,7 +2027,7 @@ plt.grid(True)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_50_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_53_0.png)
 
 </div>
 </div>
@@ -2016,7 +2070,7 @@ sns.barplot(x='over50k', y='capital_change', data=df)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_53_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_56_1.png)
 
 </div>
 </div>
@@ -2047,7 +2101,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_56_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_59_0.png)
 
 </div>
 </div>
@@ -2401,7 +2455,7 @@ plt.grid(True)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_63_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_66_1.png)
 
 </div>
 </div>
@@ -2432,7 +2486,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_66_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_69_0.png)
 
 </div>
 </div>
@@ -2458,7 +2512,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_68_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_71_0.png)
 
 </div>
 </div>
@@ -2492,7 +2546,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_71_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_74_0.png)
 
 </div>
 </div>
@@ -2521,7 +2575,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_73_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_76_0.png)
 
 </div>
 </div>
@@ -2567,7 +2621,7 @@ _ = plt.setp(bars.get_xticklabels(), rotation=90)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_76_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_79_0.png)
 
 </div>
 </div>
@@ -2605,7 +2659,7 @@ _ = plt.setp(bars.get_xticklabels(), rotation=90)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_79_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_82_0.png)
 
 </div>
 </div>
@@ -2647,7 +2701,7 @@ sns.heatmap(
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_81_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_84_0.png)
 
 </div>
 </div>
@@ -2700,7 +2754,7 @@ sns.heatmap(
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_84_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_87_0.png)
 
 </div>
 </div>
@@ -2740,7 +2794,7 @@ sns.heatmap(
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_86_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_89_0.png)
 
 </div>
 </div>
@@ -2779,7 +2833,7 @@ _ = plt.setp(bars.get_xticklabels(), rotation=90)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_89_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_92_0.png)
 
 </div>
 </div>
@@ -2807,7 +2861,7 @@ _ = plt.setp(bars.get_xticklabels(), rotation=90)
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_91_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_94_0.png)
 
 </div>
 </div>
@@ -2923,7 +2977,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_99_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_102_0.png)
 
 </div>
 </div>
@@ -2948,7 +3002,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_100_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_103_0.png)
 
 </div>
 </div>
@@ -2982,7 +3036,7 @@ plt.setp(bars.get_xticklabels(), rotation=90);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_103_0.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_106_0.png)
 
 </div>
 </div>
@@ -3275,7 +3329,7 @@ sns.heatmap(
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_109_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_112_1.png)
 
 </div>
 </div>
@@ -3555,7 +3609,7 @@ sns.clustermap(corr,
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_116_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_119_1.png)
 
 </div>
 </div>

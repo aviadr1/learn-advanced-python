@@ -4,13 +4,13 @@ redirect_from:
 interact_link: content/08_test_driven_development/08-test_driven_development.ipynb
 kernel_name: python3
 has_widgets: false
-title: '08 test driven development'
+title: '08-test Driven Development'
 prev_page:
-  url: /07_design_patterns_in_python/07-design_patterns_in_python.html
-  title: '07-design Patterns In Python'
-next_page:
   url: /08_test_driven_development/08-test_driven_development.html
-  title: '08-test Driven Development'
+  title: '08 test driven development'
+next_page:
+  url: /08_test_driven_development/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/08_test_driven_development/08-test_driven_development.ipynb" target="_blank">
