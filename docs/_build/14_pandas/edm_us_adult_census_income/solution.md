@@ -9,8 +9,8 @@ prev_page:
   url: /14_pandas/edm_us_adult_census_income/questions.html
   title: 'Questions'
 next_page:
-  url: 
-  title: ''
+  url: /15_logging/logging_in_python.html
+  title: '15 logging'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/14_pandas/edm_us_adult_census_income/solution.ipynb" target="_blank">
@@ -41,9 +41,9 @@ then followup by reading the questions and writing your own code to answer them.
 ```
 Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (2.21.0)
 Requirement already satisfied: idna<2.9,>=2.5 in /usr/local/lib/python3.6/dist-packages (from requests) (2.8)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests) (3.0.4)
 Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests) (2019.9.11)
 Requirement already satisfied: urllib3<1.25,>=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests) (1.24.3)
-Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests) (3.0.4)
 ```
 </div>
 </div>
@@ -54,19 +54,19 @@ Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /usr/local/lib/python3.6
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-### important: this code downloads the data for you into "adult.csv" file in the current directory
+### important: this code downloads the data for you into "adult.data" csv file in the current directory
 import requests
 
 url = "http://mlr.cs.umass.edu/ml/machine-learning-databases/adult/adult.data"
 request = requests.get(url)
 request.raise_for_status()
-with open('adult.csv', 'w') as f:
+with open('adult.data', 'w') as f:
     f.write(request.text)
 
-### now the data is available in the file adult.csv. 
+### now the data is available in the csv file adult.data. 
 ### read the questions below
 # import pandas as pd
-# pd.read_csv('adult.csv')    
+# pd.read_csv('adult.data')    
 
 ```
 </div>
@@ -233,7 +233,7 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>39</td>
       <td>State-gov</td>
       <td>77516</td>
@@ -251,7 +251,7 @@ df.head()
       <td>&lt;=50K</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>50</td>
       <td>Self-emp-not-inc</td>
       <td>83311</td>
@@ -269,7 +269,7 @@ df.head()
       <td>&lt;=50K</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>38</td>
       <td>Private</td>
       <td>215646</td>
@@ -287,7 +287,7 @@ df.head()
       <td>&lt;=50K</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>53</td>
       <td>Private</td>
       <td>234721</td>
@@ -305,7 +305,7 @@ df.head()
       <td>&lt;=50K</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>28</td>
       <td>Private</td>
       <td>338409</td>
@@ -369,7 +369,7 @@ hours_per_week    32561 non-null int64
 native_country    32561 non-null object
 income            32561 non-null object
 dtypes: int64(6), object(9)
-memory usage: 2.6+ MB
+memory usage: 3.7+ MB
 ```
 </div>
 </div>
@@ -512,19 +512,19 @@ native_country :
  Portugal                         37
  Nicaragua                        34
  Peru                             31
- France                           29
  Greece                           29
+ France                           29
  Ecuador                          28
  Ireland                          24
  Hong                             20
  Trinadad&Tobago                  19
  Cambodia                         19
- Laos                             18
  Thailand                         18
+ Laos                             18
  Yugoslavia                       16
  Outlying-US(Guam-USVI-etc)       14
- Honduras                         13
  Hungary                          13
+ Honduras                         13
  Scotland                         12
  Holand-Netherlands                1
 Name: native_country, dtype: int64
@@ -671,14 +671,14 @@ France                           29
 Ecuador                          28
 Ireland                          24
 Hong                             20
-Trinadad&Tobago                  19
 Cambodia                         19
+Trinadad&Tobago                  19
 Laos                             18
 Thailand                         18
 Yugoslavia                       16
 Outlying-US(Guam-USVI-etc)       14
-Honduras                         13
 Hungary                          13
+Honduras                         13
 Scotland                         12
 Holand-Netherlands                1
 Name: native_country, dtype: int64
@@ -755,7 +755,7 @@ df.head(10)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>39</td>
       <td>State-gov</td>
       <td>77516</td>
@@ -773,7 +773,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>50</td>
       <td>Self-emp-not-inc</td>
       <td>83311</td>
@@ -791,7 +791,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>38</td>
       <td>Private</td>
       <td>215646</td>
@@ -809,7 +809,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>53</td>
       <td>Private</td>
       <td>234721</td>
@@ -827,7 +827,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>28</td>
       <td>Private</td>
       <td>338409</td>
@@ -845,7 +845,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>37</td>
       <td>Private</td>
       <td>284582</td>
@@ -863,7 +863,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>49</td>
       <td>Private</td>
       <td>160187</td>
@@ -881,7 +881,7 @@ df.head(10)
       <td>0</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>52</td>
       <td>Self-emp-not-inc</td>
       <td>209642</td>
@@ -899,7 +899,7 @@ df.head(10)
       <td>1</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>31</td>
       <td>Private</td>
       <td>45781</td>
@@ -917,7 +917,7 @@ df.head(10)
       <td>1</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>42</td>
       <td>Private</td>
       <td>159449</td>
@@ -995,7 +995,7 @@ df.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>32561.000000</td>
       <td>3.256100e+04</td>
       <td>32561.000000</td>
@@ -1006,7 +1006,7 @@ df.describe()
       <td>32561.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>38.581647</td>
       <td>1.897784e+05</td>
       <td>10.080679</td>
@@ -1017,7 +1017,7 @@ df.describe()
       <td>0.240810</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>13.640433</td>
       <td>1.055500e+05</td>
       <td>2.572720</td>
@@ -1028,7 +1028,7 @@ df.describe()
       <td>0.427581</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>17.000000</td>
       <td>1.228500e+04</td>
       <td>1.000000</td>
@@ -1039,7 +1039,7 @@ df.describe()
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>28.000000</td>
       <td>1.178270e+05</td>
       <td>9.000000</td>
@@ -1050,7 +1050,7 @@ df.describe()
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>37.000000</td>
       <td>1.783560e+05</td>
       <td>10.000000</td>
@@ -1061,7 +1061,7 @@ df.describe()
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>48.000000</td>
       <td>2.370510e+05</td>
       <td>12.000000</td>
@@ -1072,7 +1072,7 @@ df.describe()
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>90.000000</td>
       <td>1.484705e+06</td>
       <td>16.000000</td>
@@ -1115,7 +1115,7 @@ sns.distplot(df.capital_gain, kde=False)
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0xf13e770>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce2a4672b0>
 ```
 
 
@@ -1156,7 +1156,7 @@ sns.distplot(df[df.capital_gain > 0].capital_gain, kde=False)
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0xf240c50>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce2a467278>
 ```
 
 
@@ -1278,7 +1278,7 @@ df[df.capital_gain == 25124]
   </thead>
   <tbody>
     <tr>
-      <td>1562</td>
+      <th>1562</th>
       <td>75</td>
       <td>?</td>
       <td>111177</td>
@@ -1296,7 +1296,7 @@ df[df.capital_gain == 25124]
       <td>1</td>
     </tr>
     <tr>
-      <td>18847</td>
+      <th>18847</th>
       <td>73</td>
       <td>Private</td>
       <td>183213</td>
@@ -1314,7 +1314,7 @@ df[df.capital_gain == 25124]
       <td>1</td>
     </tr>
     <tr>
-      <td>21892</td>
+      <th>21892</th>
       <td>65</td>
       <td>?</td>
       <td>224472</td>
@@ -1332,7 +1332,7 @@ df[df.capital_gain == 25124]
       <td>1</td>
     </tr>
     <tr>
-      <td>22462</td>
+      <th>22462</th>
       <td>68</td>
       <td>Self-emp-inc</td>
       <td>52052</td>
@@ -1421,7 +1421,7 @@ sns.distplot(df.capital_loss, kde=False)
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0xf2a3f50>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce28cce3c8>
 ```
 
 
@@ -1463,7 +1463,7 @@ sns.distplot(df[df.capital_loss !=0].capital_loss, kde=False)
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0xf48ebb0>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce28bac390>
 ```
 
 
@@ -1560,7 +1560,7 @@ plt.axhline(y=df.over50k.mean(), linestyle="--")
 
 {:.output_data_text}
 ```
-<matplotlib.lines.Line2D at 0xf4f7030>
+<matplotlib.lines.Line2D at 0x7fce28b369b0>
 ```
 
 
@@ -1642,7 +1642,7 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>39</td>
       <td>State-gov</td>
       <td>77516</td>
@@ -1661,7 +1661,7 @@ df.head()
       <td>2174</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>50</td>
       <td>Self-emp-not-inc</td>
       <td>83311</td>
@@ -1680,7 +1680,7 @@ df.head()
       <td>0</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>38</td>
       <td>Private</td>
       <td>215646</td>
@@ -1699,7 +1699,7 @@ df.head()
       <td>0</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>53</td>
       <td>Private</td>
       <td>234721</td>
@@ -1718,7 +1718,7 @@ df.head()
       <td>0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>28</td>
       <td>Private</td>
       <td>338409</td>
@@ -1766,7 +1766,7 @@ sns.barplot(
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0xf562990>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce26299278>
 ```
 
 
@@ -1842,35 +1842,35 @@ df.iloc[:, -4:].head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>United-States</td>
       <td>0</td>
       <td>2174</td>
       <td>-1594.0</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>United-States</td>
       <td>0</td>
       <td>0</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>United-States</td>
       <td>0</td>
       <td>0</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>United-States</td>
       <td>0</td>
       <td>0</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>Cuba</td>
       <td>0</td>
       <td>0</td>
@@ -1932,35 +1932,35 @@ df.iloc[:, -4:].head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>United-States</td>
       <td>0</td>
       <td>2174</td>
       <td>-1594</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>United-States</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>United-States</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>United-States</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>Cuba</td>
       <td>0</td>
       <td>0</td>
@@ -2060,7 +2060,7 @@ sns.barplot(x='over50k', y='capital_change', data=df)
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0xf670fb0>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce24fc1ac8>
 ```
 
 
@@ -2229,7 +2229,7 @@ df.groupby('education').education_num.describe()
   </thead>
   <tbody>
     <tr>
-      <td>10th</td>
+      <th>10th</th>
       <td>933.0</td>
       <td>6.0</td>
       <td>0.0</td>
@@ -2240,7 +2240,7 @@ df.groupby('education').education_num.describe()
       <td>6.0</td>
     </tr>
     <tr>
-      <td>11th</td>
+      <th>11th</th>
       <td>1175.0</td>
       <td>7.0</td>
       <td>0.0</td>
@@ -2251,7 +2251,7 @@ df.groupby('education').education_num.describe()
       <td>7.0</td>
     </tr>
     <tr>
-      <td>12th</td>
+      <th>12th</th>
       <td>433.0</td>
       <td>8.0</td>
       <td>0.0</td>
@@ -2262,7 +2262,7 @@ df.groupby('education').education_num.describe()
       <td>8.0</td>
     </tr>
     <tr>
-      <td>1st-4th</td>
+      <th>1st-4th</th>
       <td>168.0</td>
       <td>2.0</td>
       <td>0.0</td>
@@ -2273,7 +2273,7 @@ df.groupby('education').education_num.describe()
       <td>2.0</td>
     </tr>
     <tr>
-      <td>5th-6th</td>
+      <th>5th-6th</th>
       <td>333.0</td>
       <td>3.0</td>
       <td>0.0</td>
@@ -2284,7 +2284,7 @@ df.groupby('education').education_num.describe()
       <td>3.0</td>
     </tr>
     <tr>
-      <td>7th-8th</td>
+      <th>7th-8th</th>
       <td>646.0</td>
       <td>4.0</td>
       <td>0.0</td>
@@ -2295,7 +2295,7 @@ df.groupby('education').education_num.describe()
       <td>4.0</td>
     </tr>
     <tr>
-      <td>9th</td>
+      <th>9th</th>
       <td>514.0</td>
       <td>5.0</td>
       <td>0.0</td>
@@ -2306,7 +2306,7 @@ df.groupby('education').education_num.describe()
       <td>5.0</td>
     </tr>
     <tr>
-      <td>Assoc-acdm</td>
+      <th>Assoc-acdm</th>
       <td>1067.0</td>
       <td>12.0</td>
       <td>0.0</td>
@@ -2317,7 +2317,7 @@ df.groupby('education').education_num.describe()
       <td>12.0</td>
     </tr>
     <tr>
-      <td>Assoc-voc</td>
+      <th>Assoc-voc</th>
       <td>1382.0</td>
       <td>11.0</td>
       <td>0.0</td>
@@ -2328,7 +2328,7 @@ df.groupby('education').education_num.describe()
       <td>11.0</td>
     </tr>
     <tr>
-      <td>Bachelors</td>
+      <th>Bachelors</th>
       <td>5355.0</td>
       <td>13.0</td>
       <td>0.0</td>
@@ -2339,7 +2339,7 @@ df.groupby('education').education_num.describe()
       <td>13.0</td>
     </tr>
     <tr>
-      <td>Doctorate</td>
+      <th>Doctorate</th>
       <td>413.0</td>
       <td>16.0</td>
       <td>0.0</td>
@@ -2350,7 +2350,7 @@ df.groupby('education').education_num.describe()
       <td>16.0</td>
     </tr>
     <tr>
-      <td>HS-grad</td>
+      <th>HS-grad</th>
       <td>10501.0</td>
       <td>9.0</td>
       <td>0.0</td>
@@ -2361,7 +2361,7 @@ df.groupby('education').education_num.describe()
       <td>9.0</td>
     </tr>
     <tr>
-      <td>Masters</td>
+      <th>Masters</th>
       <td>1723.0</td>
       <td>14.0</td>
       <td>0.0</td>
@@ -2372,7 +2372,7 @@ df.groupby('education').education_num.describe()
       <td>14.0</td>
     </tr>
     <tr>
-      <td>Preschool</td>
+      <th>Preschool</th>
       <td>51.0</td>
       <td>1.0</td>
       <td>0.0</td>
@@ -2383,7 +2383,7 @@ df.groupby('education').education_num.describe()
       <td>1.0</td>
     </tr>
     <tr>
-      <td>Prof-school</td>
+      <th>Prof-school</th>
       <td>576.0</td>
       <td>15.0</td>
       <td>0.0</td>
@@ -2394,7 +2394,7 @@ df.groupby('education').education_num.describe()
       <td>15.0</td>
     </tr>
     <tr>
-      <td>Some-college</td>
+      <th>Some-college</th>
       <td>7291.0</td>
       <td>10.0</td>
       <td>0.0</td>
@@ -3098,61 +3098,61 @@ occupation_class.head(10)
   </thead>
   <tbody>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Self-emp-inc</td>
+      <th>Prof-specialty</th>
+      <th>Self-emp-inc</th>
       <td>0.756250</td>
       <td>160</td>
     </tr>
     <tr>
-      <td>Tech-support</td>
-      <td>Self-emp-inc</td>
+      <th>Tech-support</th>
+      <th>Self-emp-inc</th>
       <td>0.666667</td>
       <td>3</td>
     </tr>
     <tr>
-      <td>Exec-managerial</td>
-      <td>Self-emp-inc</td>
+      <th>Exec-managerial</th>
+      <th>Self-emp-inc</th>
       <td>0.635000</td>
       <td>400</td>
     </tr>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Self-emp-not-inc</td>
+      <th>Prof-specialty</th>
+      <th>Self-emp-not-inc</th>
       <td>0.563003</td>
       <td>373</td>
     </tr>
     <tr>
-      <td>Sales</td>
-      <td>Self-emp-inc</td>
+      <th>Sales</th>
+      <th>Self-emp-inc</th>
       <td>0.549828</td>
       <td>291</td>
     </tr>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Federal-gov</td>
+      <th>Prof-specialty</th>
+      <th>Federal-gov</th>
       <td>0.542857</td>
       <td>175</td>
     </tr>
     <tr>
-      <td>Exec-managerial</td>
-      <td>Federal-gov</td>
+      <th>Exec-managerial</th>
+      <th>Federal-gov</th>
       <td>0.511111</td>
       <td>180</td>
     </tr>
     <tr>
-      <td>Protective-serv</td>
-      <td>Federal-gov</td>
+      <th>Protective-serv</th>
+      <th>Federal-gov</th>
       <td>0.500000</td>
       <td>28</td>
     </tr>
     <tr>
-      <td rowspan="2" valign="top">Exec-managerial</td>
-      <td>Private</td>
+      <th rowspan="2" valign="top">Exec-managerial</th>
+      <th>Private</th>
       <td>0.481234</td>
       <td>2691</td>
     </tr>
     <tr>
-      <td>Local-gov</td>
+      <th>Local-gov</th>
       <td>0.476636</td>
       <td>214</td>
     </tr>
@@ -3227,60 +3227,60 @@ occupation_class.head(10)
   </thead>
   <tbody>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Self-emp-inc</td>
+      <th>Prof-specialty</th>
+      <th>Self-emp-inc</th>
       <td>0.756250</td>
       <td>160</td>
     </tr>
     <tr>
-      <td>Exec-managerial</td>
-      <td>Self-emp-inc</td>
+      <th>Exec-managerial</th>
+      <th>Self-emp-inc</th>
       <td>0.635000</td>
       <td>400</td>
     </tr>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Self-emp-not-inc</td>
+      <th>Prof-specialty</th>
+      <th>Self-emp-not-inc</th>
       <td>0.563003</td>
       <td>373</td>
     </tr>
     <tr>
-      <td>Sales</td>
-      <td>Self-emp-inc</td>
+      <th>Sales</th>
+      <th>Self-emp-inc</th>
       <td>0.549828</td>
       <td>291</td>
     </tr>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Federal-gov</td>
+      <th>Prof-specialty</th>
+      <th>Federal-gov</th>
       <td>0.542857</td>
       <td>175</td>
     </tr>
     <tr>
-      <td rowspan="3" valign="top">Exec-managerial</td>
-      <td>Federal-gov</td>
+      <th rowspan="3" valign="top">Exec-managerial</th>
+      <th>Federal-gov</th>
       <td>0.511111</td>
       <td>180</td>
     </tr>
     <tr>
-      <td>Private</td>
+      <th>Private</th>
       <td>0.481234</td>
       <td>2691</td>
     </tr>
     <tr>
-      <td>Local-gov</td>
+      <th>Local-gov</th>
       <td>0.476636</td>
       <td>214</td>
     </tr>
     <tr>
-      <td>Protective-serv</td>
-      <td>Local-gov</td>
+      <th>Protective-serv</th>
+      <th>Local-gov</th>
       <td>0.444079</td>
       <td>304</td>
     </tr>
     <tr>
-      <td>Prof-specialty</td>
-      <td>Private</td>
+      <th>Prof-specialty</th>
+      <th>Private</th>
       <td>0.435798</td>
       <td>2313</td>
     </tr>
@@ -3319,7 +3319,7 @@ sns.heatmap(
 
 {:.output_data_text}
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0x10bce230>
+<matplotlib.axes._subplots.AxesSubplot at 0x7fce24a29080>
 ```
 
 
@@ -3352,6 +3352,40 @@ sns.heatmap(
    - use the weight of evidence encoder `ce.woe.WOEEncoder` here's an [article](https://towardsdatascience.com/all-about-categorical-variable-encoding-305f3361fd02#targetText=Weight%20of%20Evidence%20Encoding,-Weight%20of%20Evidence&targetText=Weight%20of%20evidence%20(WOE)%20is%20a%20measure%20of%20how%20much,P(Bads)%20%3D%201.) explaining it
    - add the encoded occ_class as a new column called `occ_class_woe` to your dataframe
       
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+!pip install category_encoders
+
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+Collecting category_encoders
+[?25l  Downloading https://files.pythonhosted.org/packages/a0/52/c54191ad3782de633ea3d6ee3bb2837bda0cf3bc97644bb6375cf14150a0/category_encoders-2.1.0-py2.py3-none-any.whl (100kB)
+[K     |████████████████████████████████| 102kB 5.5MB/s 
+[?25hRequirement already satisfied: patsy>=0.4.1 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.5.1)
+Requirement already satisfied: pandas>=0.21.1 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.25.2)
+Requirement already satisfied: scipy>=0.19.0 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (1.3.1)
+Requirement already satisfied: scikit-learn>=0.20.0 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.21.3)
+Requirement already satisfied: numpy>=1.11.3 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (1.17.3)
+Requirement already satisfied: statsmodels>=0.6.1 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.10.1)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from patsy>=0.4.1->category_encoders) (1.12.0)
+Requirement already satisfied: python-dateutil>=2.6.1 in /usr/local/lib/python3.6/dist-packages (from pandas>=0.21.1->category_encoders) (2.6.1)
+Requirement already satisfied: pytz>=2017.2 in /usr/local/lib/python3.6/dist-packages (from pandas>=0.21.1->category_encoders) (2018.9)
+Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.6/dist-packages (from scikit-learn>=0.20.0->category_encoders) (0.14.0)
+Installing collected packages: category-encoders
+Successfully installed category-encoders-2.1.0
+```
+</div>
+</div>
+</div>
 
 
 
@@ -3493,7 +3527,7 @@ corr.head()
   </thead>
   <tbody>
     <tr>
-      <td>age</td>
+      <th>age</th>
       <td>1.000000</td>
       <td>-0.076646</td>
       <td>0.036527</td>
@@ -3507,7 +3541,7 @@ corr.head()
       <td>0.162277</td>
     </tr>
     <tr>
-      <td>fnlwgt</td>
+      <th>fnlwgt</th>
       <td>-0.076646</td>
       <td>1.000000</td>
       <td>-0.043195</td>
@@ -3521,7 +3555,7 @@ corr.head()
       <td>-0.026165</td>
     </tr>
     <tr>
-      <td>education_num</td>
+      <th>education_num</th>
       <td>0.036527</td>
       <td>-0.043195</td>
       <td>1.000000</td>
@@ -3535,7 +3569,7 @@ corr.head()
       <td>0.442328</td>
     </tr>
     <tr>
-      <td>female</td>
+      <th>female</th>
       <td>-0.088832</td>
       <td>-0.026858</td>
       <td>-0.012280</td>
@@ -3549,7 +3583,7 @@ corr.head()
       <td>-0.157328</td>
     </tr>
     <tr>
-      <td>capital_gain</td>
+      <th>capital_gain</th>
       <td>0.077674</td>
       <td>0.000432</td>
       <td>0.122630</td>
@@ -3599,7 +3633,7 @@ sns.clustermap(corr,
 
 {:.output_data_text}
 ```
-<seaborn.matrix.ClusterGrid at 0xf267a70>
+<seaborn.matrix.ClusterGrid at 0x7fce247eb8d0>
 ```
 
 
@@ -3609,7 +3643,7 @@ sns.clustermap(corr,
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../../images/14_pandas/edm_us_adult_census_income/solution_119_1.png)
+![png](../../images/14_pandas/edm_us_adult_census_income/solution_120_1.png)
 
 </div>
 </div>
