@@ -155,3 +155,8 @@
       url: /14_pandas/edm_us_adult_census_income/solution
     url: /14_pandas/edm_us_adult_census_income/questions
   url: /14_pandas/pandas_a_quick_tour
+- title: 15 logging
+  sections:
+  - title: Logging In Python
+    url: /15_logging/logging_in_python
+  url: /15_logging/logging_in_python
