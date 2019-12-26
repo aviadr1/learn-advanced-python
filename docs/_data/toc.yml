@@ -159,4 +159,11 @@
   sections:
   - title: Logging In Python
     url: /15_logging/logging_in_python
+  - title: exercise
+    subsections:
+    - title: Questions
+      url: /15_logging/exercise/questions
+    - title: Solutions
+      url: /15_logging/exercise/solutions
+    url: /15_logging/exercise/questions
   url: /15_logging/logging_in_python

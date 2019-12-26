@@ -9,8 +9,8 @@ prev_page:
   url: /15_logging/logging_in_python.html
   title: '15 logging'
 next_page:
-  url: 
-  title: ''
+  url: /15_logging/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/15_logging/logging_in_python.ipynb" target="_blank">
@@ -22,28 +22,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 # Logging in python
-
-
-
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```javascript%%javascript
-$.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
-// generate Table of Contents
-
-```
-</div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_data_text}
-```
-<IPython.core.display.Javascript object>
-```
-
-</div>
-</div>
-</div>
 
 
 
@@ -59,15 +37,11 @@ By logging useful data from the right places, you can find and fix errors easily
 ## Credits
 This lesson incorporates content from the following resources:
 
+- logly: [exceptional logging of exceptions in python](https://www.loggly.com/blog/exceptional-logging-of-exceptions-in-python/)
 - electricmonk: [understanding pythons logging module](https://www.electricmonk.nl/log/2017/08/06/understanding-pythons-logging-module/)
 - django deconstructed: [django and python logging in plain english ](https://djangodeconstructed.com/2018/12/18/django-and-python-logging-in-plain-english/)
 - RealPython: [Logging in python](https://realpython.com/python-logging/)
 
-
-
-
-<h2 id="tocheading">Table of Contents</h2>
-<div id="toc"></div>
 
 
 
@@ -354,6 +328,7 @@ print(Path('app.log').read_text())
 root - WARNING - This will get logged to a file
 root - WARNING - This will get logged to a file
 root - WARNING - This will get logged to a file
+root - WARNING - This will get logged to a file
 
 ```
 </div>
@@ -558,7 +533,7 @@ print(open('file.log').read())
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-2019-12-25 23:51:15,440 - __main__ - ERROR - This is an error
+2019-12-26 03:02:39,201 - __main__ - ERROR - This is an error
 
 ```
 </div>
@@ -616,7 +591,7 @@ format=%(asctime)s | %(levelname)-7s | %(name)s - %(message)s
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Overwriting example.conf
+Writing example.conf
 ```
 </div>
 </div>
@@ -652,7 +627,7 @@ logger.debug('This is a debug message')
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-2019-12-25 23:51:15,575 | DEBUG   | __main__ - This is a debug message
+2019-12-26 03:02:39,352 | DEBUG   | __main__ - This is a debug message
 ```
 </div>
 </div>
@@ -674,6 +649,7 @@ Here’s the same configuration in a YAML format for the dictionary approach:
 %%file config.yaml
 
 version: 1
+disable_existing_loggers: False
 formatters:
   simple:
     format: '%(asctime)s | %(levelname)-7s | %(name)s - %(message)s'
@@ -700,7 +676,7 @@ root:
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Overwriting config.yaml
+Writing config.yaml
 ```
 </div>
 </div>
@@ -733,7 +709,7 @@ logger.debug('This is a debug message')
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-2019-12-25 23:51:15,720 | DEBUG   | __main__ - This is a debug message
+2019-12-26 03:02:39,517 | DEBUG   | __main__ - This is a debug message
 ```
 </div>
 </div>
@@ -966,10 +942,14 @@ When I run into weird logging problems such as no output, or double lines, I gen
 
 ```python
 log_to_debug = logging.getLogger("myapp.ui.edit")
+
 while log_to_debug is not None:
-    print "level: %s, name: %s, handlers: %s" % (log_to_debug.level,
-                                                 log_to_debug.name,
-                                                 log_to_debug.handlers)
+    print("level: %s, name: %s (%x), handlers: %s" % (
+        log_to_debug.level,
+        log_to_debug.name,
+        id(log_to_debug),
+        log_to_debug.handlers))
+    
     log_to_debug = log_to_debug.parent
 ```
 
@@ -1007,6 +987,209 @@ To allow different behaviors, a single logger can send a LogRecord to multiple d
 
 
 
+# Exceptional logging of exceptions in Python
+
+Exceptions happen. And as developers, we simply have to deal with them. Even when writing software to help us find burritos.
+
+Wait, I’m getting ahead of myself… we’ll come back to that. As I was saying: How we deal with exceptions depends on the language. And for software operating at scale, logging is one of the most powerful, valuable tools we have for dealing with error conditions. Let’s look at some ways these work together.
+
+## The “Big Tarp” Pattern
+We’re going to start at one extreme:
+
+```python
+try:
+    main_loop()
+except Exception:
+    logger.exception("Fatal error in main loop")
+```
+
+This is a broad catch-all. It is suitable for some code path where you know the block of code (i.e, main_loop()) can raise a number of exceptions you may not anticipate. And rather than allow the program to terminate, you decide it’s preferable to log the error information, and continue from there.
+
+The magic here is with exception method. (logger is your application’s logger object—something that was returned from logging.getLogger(), for example.) This wonderful method captures the full stack trace in the context of the except block, and writes it in full.
+
+Note that you don’t have to pass the exception object here. You do pass a message string. This will log the full stack trace, but prepend a line with your message. So the multiline message that shows up in your log might look like this:
+
+```
+Fatal error in main loop
+Traceback (most recent call last):
+  File "bigtarp.py", line 14, in
+    main_loop()
+  File "bigtarp.py", line 9, in main_loop
+    print(foo(x))
+  File "bigtarp.py", line 4, in foo
+    return 10 // n
+    ZeroDivisionError: integer division or modulo by zero
+```
+
+The details of the stack trace don’t matter—this is a toy example that illustrates a grown-up solution to a real world problem. Just notice that the first line is the message you passed to `logger.exception()`, and the subsequent lines are the full stack trace, including the exception type (`ZeroDivisionError` in this case). It will catch and log any kind of error in this way.
+
+By default, `logger.exception` uses the log level of `ERROR`. Alternatively, you can use the regular logging methods— `logger.debug()`, `logger.info()`, `logger.warn()`, etc.—and pass the `exc_info` parameter, setting it to `True`:
+
+```python
+while True:
+    try:
+        main_loop()
+    except Exception:
+        logger.error("Fatal error in main loop", exc_info=True)
+```
+
+Setting `exc_info` to `True` will cause the logging to include the full stack trace…. exactly like `logger.exception()` does. The only difference is that you can easily change the log level to something other than error: Just replace `logger.error` with `logger.warning`, for example.
+
+Fun fact: The Big Tarp pattern has an almost diabolical counterpart, which you’ll read about below.
+
+## The “Pinpoint” Pattern
+Now let’s look at the other extreme. Imagine you are working with the _OpenBurrito SDK_, a library solving the crucial problem of finding a late-night burrito joint near your current location. Suppose it has a function called `find_burrito_joints()` that normally returns a list of suitable restaurants. But under certain rare circumstances, it may raise an exception called `BurritoCriteriaConflict`.
+
+```python
+from openburrito import find_burrito_joints, BurritoCriteriaConflict
+# "criteria" is an object defining the kind of burritos you want.
+try:
+    places = find_burrito_joints(criteria)
+except BurritoCriteriaConflict as err:
+    logger.warn("Cannot resolve conflicting burrito criteria: {}".format(err.message))
+    places = list()
+```
+
+The pattern here is to optimistically execute some code—the call to `find_burrito_joints()`, in this case—within a try block. In the event a specific exception type is raised, you log a message, deal with the situation, and move on.
+
+The key difference is the except clause. With the Big Tarp, you’re basically catching and logging any possible exception. With Pinpoint, you are catching a very specific exception type, which has semantic relevance at that particular place in the code.
+
+Notice also, that I use `logger.warn()` rather than `logger.exception()`. In other words, I log a message at a particular severity instead of logging the whole stack trace.
+
+Why am I throwing away the stack trace information? Because it is not as useful in this context, where I’m catching a specific exception type, which has a clear meaning in the logic of the code. For example, in this snippet:
+
+```python
+characters = {"hero": "Homer", "villain": "Mr. Burns"}
+# Insert some code here that may or may not add a key called
+# "sidekick" to the characters dictionary.
+try:
+    sidekick = characters["sidekick"]
+except KeyError:
+    sidekick = "Milhouse"
+```
+
+Here, the `KeyError` is not just any error. When it is raised, that means a specific situation has occurred—namely, there is no “sidekick” role defined in my cast of characters, so I must fall back to a default. Filling up the log with a stack trace is not going to be useful in this kind of situation. And that is where you will use Pinpoint.
+
+## The “Transformer” Pattern
+Here, you are catching an exception, logging it, then raising a different exception. First, here’s how it works in Python 3:
+
+```python
+try:
+    something()
+except SomeError as err:
+    logger.warn("...")
+    raise DifferentError() from err
+```
+
+(That turns out to have big implications. More on that in a moment.) You will want to use this pattern when an exception may be raised that does not map well to the logic of your application. This often occurs around library boundaries.
+
+For example, imagine you are using the openburrito SDK for your killer app that lets people find late-night burrito joints. The `find_burrito_joints()` function may raise `BurritoCriteriaConflict` if we’re being too picky. This is the API exposed by the SDK, but it does not conveniently map to the higher-level logic of your application. A better fit at this point of the code is an exception you defined, called `NoMatchingRestaurants`.
+
+In this situation, you will apply the pattern like this (for Python 3):
+
+```python
+from myexceptions import NoMatchingRestaurants
+try:
+    places = find_burrito_joints(criteria)
+except BurritoCriteriaConflict as err:
+    logger.warn("Cannot resolve conflicting burrito criteria: {}".format(err.message))
+    raise NoMatchingRestaurants(criteria) from err
+```
+
+This causes a single line of output in your log, and triggers a new exception. If never caught, that exception’s error output looks like this:
+
+```
+Traceback (most recent call last):
+  File "transformerB3.py", line 8, in
+    places = find_burrito_joints(criteria)
+  File "/Users/amax/python-exception-logging-patterns/openburrito.py", line 7, in find_burrito_joints
+    raise BurritoCriteriaConflict
+openburrito.BurritoCriteriaConflict
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "transformerB3.py", line 11, in
+    raise NoMatchingRestaurants(criteria) from err
+myexceptions.NoMatchingRestaurants: {'region': 'Chiapas'}
+```
+
+Now this is interesting. The output includes the stack trace for `NoMatchingRestaurants`. And it reports the instigating `BurritoCriteriaConflict` as well… clearly specifying which was the original.
+
+In Python 3, exceptions can be chained. The `raise ... from ...` syntax provides this. When you say `raise NoMatchingRestaurants(criteria) from err`, that raises an exception of typeNoMatchingRestaurants. This raised exception has an attribute named `__cause__`, whose value is the instigating exception. Python 3 makes use of this internally when reporting the error information.
+
+
+## The “Message and Raise” Pattern
+In this pattern, you log that an exception occurs at a particular point, but then allow it to propagate and be handled at a higher level:
+
+```python
+try:
+    something()
+except SomeError:
+    logger.warn("...")
+    raise
+```
+
+You are not actually handling the exception. You are just temporarily interrupting the flow to log an event. You will do this when you specifically have a higher-level handler for the error, and want to fall back on that, yet also want to log that the error occurred, or the meaning of it, at a certain place in the code.
+
+This may be most useful in troubleshooting—when you are getting an exception, but trying to better understand the calling context. You can interject this logging statement to provide useful information, and even safely deploy to production if you need to observe the results under realistic conditions.
+
+## The “Cryptic Message” Antipattern
+Now we’ll turn our attention to some anti-patterns… things you should not do in your code.
+
+```python
+try:
+    something()
+except Exception:
+    logger.error("...")
+```
+
+Suppose you or someone on your team writes this code, and then six months later, you see a funny message in your log. Something like:
+
+`ERROR: something bad happened`
+
+Now I hope and pray that you will not see the words “something bad happened” in your actual log. However, the actual log text you see may be just as baffling. What do you do next?
+
+Well, the first thing is to figure out where in the code base this vague message is being logged. If you are lucky, you will be able to quickly grep through the code and find exactly one possibility. If you are not lucky, you may find the log message in several completely different code paths. Which will leave you with several questions:
+
+Which one of them is triggering the error?
+Or is it several of them? Or ALL of them?
+Which entry in the log corresponds to which place?
+Sometimes, however, it’s not even possible to grep or search through the code to find where it is happening, because the log text is being generated. Consider:
+
+    what = "something"
+    quality = "bad"
+    event = "happened"
+    logger.error("%s %s %s", what, quality, event)
+How would you even search for that? You may not even think of it, unless you searched for the full phrase first and got no hits. And if you did get a hit, it could easily be a false positive.
+
+The ideal solution is to pass the exc_info argument:
+
+```python
+try:
+    something()
+except Exception:
+    logger.error("something bad happened", exc_info=True)
+```
+
+When you do this, a full stack trace is included in the application logs. This tells you exactly what line in what file is causing the problem, who invoked it, et cetera… all the information you need to start debugging.
+
+## The Most Diabolical Python Antipattern
+If I ever see you do this one, I will come to your house to confiscate your computers, then hack into your github account and delete all your repos:
+
+```python
+try:
+    something()
+except Exception:
+    pass
+```
+
+I refer to this as “The Most Diabolical Python Antipattern.” Notice how this not only fails to give you any useful exception information. It also manages to completely hide the fact that anything is wrong in the first place. You may never even know you mistyped a variable name—yes, this actually masks NameError—until you get paged at 2 a.m. because production is broken, in a way that takes you until dawn to figure out, because all possible troubleshooting information is being suppressed.
+
+Just don’t do it. If you feel like you simply must catch and ignore all errors, at least throw a big tarp under it (i.e. use logger.exception() instead of pass).
+
+
+
+
+
 # Example
 
 
@@ -1041,6 +1224,7 @@ With logging, this requires no special coding, and is relatively easy to configu
 %%file project/project.yaml
 
 version: 1
+disable_existing_loggers: False
 formatters:
   simple:
     format: '%(asctime)s | %(levelname)-7s | %(name)-30s - %(message)s'
@@ -1092,7 +1276,7 @@ root:
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Overwriting project/project.yaml
+Writing project/project.yaml
 ```
 </div>
 </div>
@@ -1178,8 +1362,6 @@ import project.moduleA.submoduleX.x1 as x1
 import project.moduleA.submoduleX.x2 as x2
 import project.moduleB.b1 as b1
 
-#logging.config.fileConfig('project.conf')
-
 import yaml
 from pathlib import Path
 
@@ -1200,14 +1382,14 @@ for module in [a1, x1, x2, b1]:
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-2019-12-25 23:52:06,654 | ERROR   | project.moduleA.a1             - there seems to be an error
-2019-12-25 23:52:06,654 | INFO    | project.moduleA.submoduleX.x1  - doing something
-2019-12-25 23:52:06,654 | WARNING | project.moduleA.submoduleX.x1  - something could be wrong
-2019-12-25 23:52:06,654 | ERROR   | project.moduleA.submoduleX.x1  - there seems to be an error
-2019-12-25 23:52:06,655 | DEBUG   | project.moduleA.submoduleX.x2  - this information is for debugging
-2019-12-25 23:52:06,655 | INFO    | project.moduleA.submoduleX.x2  - doing something
-2019-12-25 23:52:06,655 | WARNING | project.moduleA.submoduleX.x2  - something could be wrong
-2019-12-25 23:52:06,655 | ERROR   | project.moduleA.submoduleX.x2  - there seems to be an error
+2019-12-26 03:02:46,062 | ERROR   | project.moduleA.a1             - there seems to be an error
+2019-12-26 03:02:46,063 | INFO    | project.moduleA.submoduleX.x1  - doing something
+2019-12-26 03:02:46,063 | WARNING | project.moduleA.submoduleX.x1  - something could be wrong
+2019-12-26 03:02:46,063 | ERROR   | project.moduleA.submoduleX.x1  - there seems to be an error
+2019-12-26 03:02:46,063 | DEBUG   | project.moduleA.submoduleX.x2  - this information is for debugging
+2019-12-26 03:02:46,063 | INFO    | project.moduleA.submoduleX.x2  - doing something
+2019-12-26 03:02:46,063 | WARNING | project.moduleA.submoduleX.x2  - something could be wrong
+2019-12-26 03:02:46,063 | ERROR   | project.moduleA.submoduleX.x2  - there seems to be an error
 ```
 </div>
 </div>
@@ -1228,17 +1410,5 @@ for f in [f for f in Path('project/').iterdir() if f.is_file()]:
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-3993 bytes 	 project\moduleA.errors.log
-3508 bytes 	 project\moduleA.submoduleX.info.log
-1806 bytes 	 project\moduleA.submoduleX.x2.debug.log
-1806 bytes 	 project\moduleB.b1.debug.log
-1056 bytes 	 project\project.yaml
-```
-</div>
-</div>
 </div>
 
