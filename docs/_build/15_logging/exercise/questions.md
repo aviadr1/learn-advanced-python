@@ -93,28 +93,9 @@ ex1.say_something()
 import ex2
 ex2.say_something()
 
-log_to_debug = ex2.logger
-while log_to_debug is not None:
-    print("level: %s, name: %s (%x), handlers: %s" % (
-        log_to_debug.level,
-        log_to_debug.name,
-        id(log_to_debug),
-        log_to_debug.handlers))
-    
-    log_to_debug = log_to_debug.parent
-
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-level: 10, name: ex2 (62fbb30), handlers: []
-level: 30, name: root (3a787b0), handlers: [<StreamHandler stderr (NOTSET)>]
-```
-</div>
-</div>
 </div>
 
 
