@@ -23,6 +23,8 @@
   sections:
   - title: Closure And Decorators
     url: /02_closures_and_decorators/closure_and_decorators
+  - title: Variadic Functions
+    url: /02_closures_and_decorators/variadic_functions
   - title: exercise
     subsections:
     - title: Questions

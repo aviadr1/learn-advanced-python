@@ -9,8 +9,8 @@ prev_page:
   url: /02_closures_and_decorators/closure_and_decorators.html
   title: '02 closures and decorators'
 next_page:
-  url: /02_closures_and_decorators/exercise/questions.html
-  title: 'exercise'
+  url: /02_closures_and_decorators/variadic_functions.html
+  title: 'Variadic Functions'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/02_closures_and_decorators/closure_and_decorators.ipynb" target="_blank">
@@ -252,56 +252,64 @@ Something is happening after the function is called.
 
 
 
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-"""
 To understand what’s going on here, look back at the previous examples. 
 We are literally just applying everything you have learned so far.
 
 The so-called decoration happens at the following line:
 
-say_whee = my_decorator(say_whee)
-In effect, the name say_whee now points to the wrapper() inner function. 
-Remember that you return wrapper as a function when you call my_decorator(say_whee):
-"""
+`say_whee = my_decorator(say_whee)`
+In effect, the name say_whee now points to the `wrapper()` inner function. 
+Remember that you return wrapper as a function when you call `my_decorator(say_whee)`:
 
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
 print(say_whee)
-
-"""
-<function my_decorator.<locals>.wrapper at 0x7f3c5dfd42f0>
-However, wrapper() has a reference to the original say_whee() as func, and calls that function between the two calls to print().
-
-Put simply: decorators wrap a function, modifying its behavior.
-"""
-
-pass
 
 ```
 </div>
 
 <div class="output_wrapper" markdown="1">
 <div class="output_subarea" markdown="1">
-{:.output_stream}
+{:.output_traceback_line}
 ```
-<function my_decorator.<locals>.wrapper at 0x000001A27D0A3AE8>
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-1-2051ccf0e421> in <module>()
+    ----> 1 print(say_whee)
+    
+
+    NameError: name 'say_whee' is not defined
+
+
 ```
 </div>
 </div>
 </div>
+
+
+
+However, `wrapper()` has a reference to the original `say_whee()` as func, and calls that function between the two calls to `print()`.
+
+Put simply: decorators wrap a function, modifying its behavior.
+
+
+
+Before moving on, let’s have a look at a second example. 
+Because wrapper() is a regular Python function, 
+the way a decorator modifies a function can change dynamically. 
+So as not to disturb your neighbors, the following example will only run the decorated code during the day:
 
 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
-"""
-Before moving on, let’s have a look at a second example. 
-Because wrapper() is a regular Python function, 
-the way a decorator modifies a function can change dynamically. 
-So as not to disturb your neighbors, the following example will only run the decorated code during the day:
-"""
-
 from datetime import datetime
 override_hour =  None
 
