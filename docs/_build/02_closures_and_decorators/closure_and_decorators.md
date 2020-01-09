@@ -273,20 +273,9 @@ print(say_whee)
 
 <div class="output_wrapper" markdown="1">
 <div class="output_subarea" markdown="1">
-{:.output_traceback_line}
+{:.output_stream}
 ```
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-1-2051ccf0e421> in <module>()
-    ----> 1 print(say_whee)
-    
-
-    NameError: name 'say_whee' is not defined
-
-
+<function my_decorator.<locals>.wrapper at 0x05D4D348>
 ```
 </div>
 </div>
@@ -669,12 +658,10 @@ help(say_whee)
 sin
 Help on built-in function sin in module math:
 
-sin(...)
-    sin(x)
-    
+sin(x, /)
     Return the sine of x (measured in radians).
 
-<function do_twice.<locals>.wrapper_do_twice at 0x000001A27D0B1620>
+<function do_twice.<locals>.wrapper_do_twice at 0x05D4DFA8>
 wrapper_do_twice
 Help on function wrapper_do_twice in module __main__:
 
@@ -729,7 +716,7 @@ say_whee()
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-<function say_whee at 0x000001A27D0C26A8>
+<function say_whee at 0x05F9BB28>
 say_whee
 Help on function say_whee in module __main__:
 
@@ -811,8 +798,8 @@ waste_some_time(999)
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Finished 'waste_some_time' in 0.0033 secs
-Finished 'waste_some_time' in 3.3701 secs
+Finished 'waste_some_time' in 0.0031 secs
+Finished 'waste_some_time' in 3.0549 secs
 ```
 </div>
 </div>
@@ -1049,8 +1036,8 @@ randomly_greet("Alice")
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-{'say_hello': <function say_hello at 0x000001A27D0D89D8>, 'be_awesome': <function be_awesome at 0x000001A27D0D8B70>}
-Using 'be_awesome'
+{'say_hello': <function say_hello at 0x05FADC00>, 'be_awesome': <function be_awesome at 0x05FADBB8>}
+Using 'say_hello'
 ```
 </div>
 </div>
@@ -1060,7 +1047,7 @@ Using 'be_awesome'
 
 {:.output_data_text}
 ```
-'Yo Alice, together we are the awesomest!'
+'Hello Alice'
 ```
 
 
@@ -1249,9 +1236,9 @@ tw.waste_time(999)
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Calling __init__(<__main__.TimeWaster object at 0x000001A27D0E0C88>, 1000)
+Calling __init__(<__main__.TimeWaster object at 0x05FA2090>, 1000)
 '__init__' returned None
-Finished 'waste_time' in 0.3012 secs
+Finished 'waste_time' in 0.2887 secs
 ```
 </div>
 </div>
@@ -1292,14 +1279,6 @@ else:
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-dataclasses only work with python 3.7 and above
-```
-</div>
-</div>
 </div>
 
 

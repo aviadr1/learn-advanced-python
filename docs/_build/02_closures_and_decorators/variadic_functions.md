@@ -28,7 +28,8 @@ Have you noticed that the `print` function can accept any number of positional a
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```print(1,2,3)
+```python
+print(1,2,3)
 print() # empty line
 print(1,2,3,4,5,6,7,8,8,10)
 
@@ -57,13 +58,15 @@ But our functions seem to accept *exactly* the same number of parameters as give
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```def blah(x,y):
+```python
+def blah(x,y):
     print(x,y)
 
 blah(1,2)     # OK
 # blah()      # ERROR: blah() missing 2 required positional arguments: 'x' and 'y'
 # blah(1)     # ERROR: blah() missing 1 required positional argument: 'y'
 # blah(1,2,3) # ERROR: blah() takes 2 positional arguments but 3 were given
+
 
 ```
 </div>
@@ -92,7 +95,8 @@ if we prepend the `*` character before a name of a parameter (usually this param
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```def variadic_func1(*args):
+```python
+def variadic_func1(*args):
     print(type(args)) # args is a variable of type tuple
     print(args) # prints the tuple
     print(*args) # equals print(args[0], args[1], args[2], ..., args[-2], args[-1])
@@ -124,7 +128,8 @@ have you noticed that `dict()` function can receive variable number of keyword a
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```dict(
+```python
+dict(
     did_you_notice="that",
     i_can="add as many",
     keyword_arguments="as I want",
@@ -164,7 +169,8 @@ if we prepend the `**` character before a name of a parameter (usually this para
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```def variadic_func2(**kwargs):
+```python
+def variadic_func2(**kwargs):
     print(type(kwargs)) # kwargs is of type `dict`
     print(kwargs)       # prints the dictionary
     # print(**kwargs)   # we will demonstrate this in a different way
@@ -195,7 +201,8 @@ they can be used like this
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```params = {
+```python
+params = {
     'username': "jamesbond",
     'password': "007",
     'company': "mi6"
@@ -207,7 +214,6 @@ def connect(username, password, company):
 # take all the key/value pairs from the `params` dict
 # and use them as keyword arguments for the connect function
 connect(**params) # this actually calls connect(username="jamesbond", password="007", company="mi6")
-)
 
 ```
 </div>
@@ -238,7 +244,8 @@ def variadic_function(*args, **kwargs):
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
-```def variadic_function(*args, **kwargs):
+```python
+def variadic_function(*args, **kwargs):
     print(type(args), args)
     print(type(kwargs), kwargs)
 
