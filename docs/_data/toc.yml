@@ -83,6 +83,11 @@
   sections:
   - title: 08-test Driven Development
     url: /08_test_driven_development/08-test_driven_development
+  - title: .pytest cache
+    subsections:
+    - title: Readme
+      url: /08_test_driven_development/.pytest_cache/README
+    url: /08_test_driven_development/.pytest_cache/README
   - title: exercise
     subsections:
     - title: Questions

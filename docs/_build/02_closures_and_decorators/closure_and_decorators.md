@@ -38,6 +38,34 @@ Consider the example below, where a function defines an inner function and retur
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```python
+class Printer:
+    def __init__(self, message):
+        self.message = message
+
+    def do_it(self):
+        print(self.message)
+
+print_hello = Printer('hello')
+print_hello.do_it()  
+
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+hello
+```
+</div>
+</div>
+</div>
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
 # make_printer() is a function that creates functions!
 def make_printer(message):
     
@@ -76,6 +104,30 @@ are these the same function? False
 
 
 
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+print_hello
+
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+
+
+{:.output_data_text}
+```
+<function __main__.make_printer.<locals>.nested_printer_func>
+```
+
+
+</div>
+</div>
+</div>
+
+
+
 ### What's happening here?
 The `make_printer()` function was called with the string "hello" and the returned function was bound to the name print_hello. On calling print_hello(), the message was still remembered although we had already finished executing the `make_printer()` function.
 
@@ -100,6 +152,78 @@ There's two main cases:
    if we want to take an exising function and add functionality to that function without changing the original function's code by 'wrapping' or 'decorating' that function, closures are a good solution 
    
 we will take a long look at decorators at the end of this lesson, so for now, lets focus on do_something classes
+
+
+
+# Your Turn
+
+write a function called `constant_function_factory()` that creates contant function.
+a constant function is a function that takes no parameters and always returns the same value
+> hint: Use closures
+
+it should work like so
+```python
+f10 = constant_function_factory(10)
+print(f10()) # 10
+
+f2 = constant_function_factory(2)
+print(f2()) # 2
+```
+
+
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+### your answer:
+
+
+```
+</div>
+
+</div>
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
+# test your code
+f10 = constant_function_factory(10)
+print(f10()) # 10
+ 
+f2 = constant_function_factory(2)
+print(f2()) # 2
+
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_traceback_line}
+```
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-4-3d7ba74c8048> in <module>()
+    ----> 1 f10 = constant_function_factory(10)
+          2 print(f10()) # 10
+          3 
+          4 f2 = constant_function_factory(2)
+          5 print(f2()) # 2
+
+
+    NameError: name 'constant_function_factory' is not defined
+
+
+```
+</div>
+</div>
+</div>
 
 
 
