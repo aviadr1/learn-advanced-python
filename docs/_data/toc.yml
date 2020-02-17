@@ -85,11 +85,6 @@
     url: /08_test_driven_development/08-pytest
   - title: 08-unittest Mock
     url: /08_test_driven_development/08-unittest_mock
-  - title: .pytest cache
-    subsections:
-    - title: Readme
-      url: /08_test_driven_development/.pytest_cache/README
-    url: /08_test_driven_development/.pytest_cache/README
   - title: exercise
     subsections:
     - title: Questions

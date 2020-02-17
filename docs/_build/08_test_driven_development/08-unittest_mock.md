@@ -9,8 +9,8 @@ prev_page:
   url: /08_test_driven_development/08-pytest.html
   title: '08-pytest'
 next_page:
-  url: /08_test_driven_development/.pytest_cache/README.html
-  title: '.pytest cache'
+  url: /08_test_driven_development/exercise/questions.html
+  title: 'exercise'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/08_test_driven_development/08-unittest_mock.ipynb" target="_blank">
