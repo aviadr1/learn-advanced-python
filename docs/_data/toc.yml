@@ -81,8 +81,10 @@
   url: /07_design_patterns_in_python/07-design_patterns_in_python
 - title: 08 test driven development
   sections:
-  - title: 08-test Driven Development
-    url: /08_test_driven_development/08-test_driven_development
+  - title: 08-pytest
+    url: /08_test_driven_development/08-pytest
+  - title: 08-unittest Mock
+    url: /08_test_driven_development/08-unittest_mock
   - title: .pytest cache
     subsections:
     - title: Readme
@@ -95,7 +97,7 @@
     - title: Solutions
       url: /08_test_driven_development/exercise/solutions
     url: /08_test_driven_development/exercise/questions
-  url: /08_test_driven_development/08-test_driven_development
+  url: /08_test_driven_development/08-pytest
 - title: 10 package management
   sections:
   - title: 10-package Management

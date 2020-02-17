@@ -9,7 +9,7 @@ prev_page:
   url: /07_design_patterns_in_python/07-design_patterns_in_python.html
   title: '07 design patterns in python'
 next_page:
-  url: /08_test_driven_development/08-test_driven_development.html
+  url: /08_test_driven_development/08-pytest.html
   title: '08 test driven development'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
